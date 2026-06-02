@@ -1,10 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
 import bcrypt from "bcryptjs";
 
-const DB_URL = "file:b:/Programing-hero-course/WriteFlowAi/writeflow-ai/prisma/dev.db";
-const adapter = new PrismaBetterSqlite3({ url: DB_URL });
-const prisma = new PrismaClient({ adapter } as any);
+const prisma = new PrismaClient();
 
 async function main() {
   const userPassword = await bcrypt.hash("123456", 10);
